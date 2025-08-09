@@ -1,5 +1,3 @@
-################## INDONESIA ##################
-
 #EXTM3U
 # EXTINF : -1  tvg-id = " INDOSIAR.IPTV "  tvg-name = " INDOSIAR.IPTV "  tvg-logo = " https://iili.io/JMp3wV1.png "  group-title = " Saluran Indonesia " , INDOSIAR
 # KODIPROP:inputstream.adaptive.license_type=clearkey
