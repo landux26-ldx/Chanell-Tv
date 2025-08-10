@@ -39,3 +39,7 @@ https://5bf7b725107e5.streamlock.net/btv/btv/playlist.m3u8
 
 #EXTINF:-1 tvg-id="BantenTV.id" tvg-logo="https://i.imgur.com/tbtF40p.png" group-title="Undefined",Banten TV (720p) [Not 24/7]
 https://5bf7b725107e5.streamlock.net/bantentv/bantentv/playlist.m3u8
+
+#EXTINF : -1  tvg-id = " GARUDATV.IPTV "  tvg-name = " GARUDATV.IPTV "  group-title = " Saluran Indonesia "  tvg-logo = " https://iili.io/2rCEOZl.png " , GARUDATV
+#EXTVLCOPT : http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, seperti Gecko) Chrome/111.0.0.0 Firefox/101.0 Safari/537.36 Edg/111.0.1661.43
+https://hgmtv.com:19360/garudatvlivestreaming/garudatvlivestreaming.m3u8
