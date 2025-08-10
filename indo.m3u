@@ -7,7 +7,12 @@ https://hgmtv.com:19360/garudatvlivestreaming/garudatvlivestreaming.m3u8
 #KODIPROP:inputstream.adaptive.license_key=5eaddccd893a47ac8b65f9b31963a3ae:881afa67ea57b41c1822d745d67559e6
 http://khano.nng.cloudns.us/live/m3u8/id/575eeb9f08dc8db.m3u8
 
-#EXTINF:-1 tvg-id="SCTV" tvg-name="SCTV" group-title="Lokal" tvg-logo="https://iili.io/JMp3iiX.png",SCTV
+#EXTINF:-1 tvg-id="SCTV1ametvg-name="SCTV1" group-title="Lokal" tvg-logo="https://iili.io/JMp3iiX.png",SCTV 1
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=a79a188263724bfcaafc4a7c3b3cd8ce:4d4732d93e6720de0ef884d7106e14f7
+http://op-group1-swiftservehd-1.dens.tv/h/h217/01.m3u8
+
+#EXTINF:-1 tvg-id="SCTVS2CTVg-name="SCSC2TVgroup-title="Lokal" tvg-logo="https://iili.io/JMp3iiX.png",SCTV 2
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=a79a188263724bfcaafc4a7c3b3cd8ce:4d4732d93e6720de0ef884d7106e14f7
 http://khano.nng.cloudns.us/live/m3u8/id/2b8fc230e8f847a.m3u8
