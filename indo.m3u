@@ -53,3 +53,18 @@ https://ott-balancer.tvri.go.id/live/eds/Nasional/hls/Nasional-avc1_2500000=1000
 
 #EXTINF:-1 tvg-id="Kompas Tv" tvg-name="Kompas Tv" group-title="server youtube" tvg-logo="https://iili.io/FLScZ4R.jpg",Kompas Tv
 https://www.youtube.com/live/kQzKODAZRXc?si=FStaY39yTV_ea--d
+
+#EXTINF:-1 tvg-id="tvONE" tvg-name="tvONE" group-title="server youtube" tvg-logo="https://iili.io/FL4tS1V.jpg",tvOne
+https://www.youtube.com/live/yNKvkPJl-tg?si=Y3J7Te87d7A2uRCt
+
+#EXTINF:-1 tvg-id="TransTV" tvg-name="TransTV" group-title="Server Lokal" tvg-logo="https://iili.io/FL4D46l.jpg",TransTV
+https://video.detik.com/transtv/smil:transtv.smil/chunklist_w2114898498_b744100_sleng.m3u8
+
+#EXTINF:-1 tvg-id="DaaiTV" tvg-name="DaaiTV" group-title="Server Lokal" tvg-logo="https://iili.io/FL4bQlp.jpg",DaaiTV
+https://pull.daaiplus.com/live-DAAIPLUS/live-DAAIPLUS_HD.m3u8
+
+#EXTINF:-1 tvg-id="NusantaraTV" tvg-name="NusantaraTV" group-title="Server Lokal" tvg-logo="https://iili.io/FLP7TIS.jpg",NusantaraTV
+https://nusantaratv.siar.us/nusantaratv/live/playlist.m3u8
+
+#EXTINF:-1 tvg-id="BTV" tvg-name="BTV" group-title="Server Lokal" tvg-logo="https://iili.io/FLPYrNV.jpg",BTV
+https://btv.secureswiftcontent.com/han/btv/btv10005r/srtoutput/manifest.m3u8
