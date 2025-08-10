@@ -1,8 +1,8 @@
 #EXTM3U
-#EXTINF:-1 tvg-id="GARUDATV" tvg-name="GARUDATV" group-title="Lokal" tvg-logo="https://iili.io/2rCEOZl.png",GARUDATV
+#EXTINF:-1 tvg-id="GARUDATV" tvg-name="GARUDATV" group-title="Lokal" tvg-logo="https://iili.io/FLSkGov.jpg",GARUDATV
 https://hgmtv.com:19360/garudatvlivestreaming/garudatvlivestreaming.m3u8
 
-#EXTINF:-1 tvg-id="INDOSIAR" tvg-name="INDOSIAR" group-title="Lokal" tvg-logo="https://iili.io/JMp3wV1.png",INDOSIAR 
+#EXTINF:-1 tvg-id="INDOSIAR" tvg-name="INDOSIAR" group-title="Lokal" tvg-logo="https://iili.io/FLSUOrl.jpg",INDOSIAR 
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=5eaddccd893a47ac8b65f9b31963a3ae:881afa67ea57b41c1822d745d67559e6
 http://khano.nng.cloudns.us/live/m3u8/id/575eeb9f08dc8db.m3u8
@@ -15,13 +15,13 @@ http://khano.nng.cloudns.us/live/m3u8/id/2b8fc230e8f847a.m3u8
 #EXTINF:-1 tvg-id="SCTV2" tvg-name="SCTV2" group-title="Lokal" tvg-logo="https://iili.io/FLSE6SR.jpg",SCTV 2
 http://op-group1-swiftservehd-1.dens.tv/h/h217/01.m3u8
 
-#EXTINF:-1 tvg-id="MDTV" tvg-name="MDTV" group-title="Lokal" tvg-logo="https://iptvsystem.my.id/img/mdtv.png",MDTV
+#EXTINF:-1 tvg-id="MDTV" tvg-name="MDTV" group-title="Lokal" tvg-logo="https://iili.io/FLSsI6u.jpg",MDTV
 https://op-group1-swiftservesd-1.dens.tv/h/h06/index.m3u8
 
-#EXTINF:-1 tvg-id="MAGNA" tvg-name="MAGNA" group-title="Lokal" tvg-logo="https://iptvsystem.my.id/img/magna.png",MAGNA
+#EXTINF:-1 tvg-id="MAGNA" tvg-name="MAGNA" group-title="Lokal" tvg-logo="https://iili.io/FLU9DhJ.jpg",MAGNA
 https://edge.medcom.id/live-edge/smil:magna.smil/playlist.m3u8
 
-#EXTINF:-1 tvg-id="CNNINDONESIA" tvg-name="CNNINDONESIA" group-title="Lokal" tvg-logo="https://iptvsystem.my.id/img/cnnindonesia.png",CNNINDONESIA
+#EXTINF:-1 tvg-id="CNNINDONESIA" tvg-name="CNNINDONESIA" group-title="Lokal" tvg-logo="https://iili.io/FLU3PO7.jpg",CNNINDONESIA
 https://live.cnnindonesia.com/livecnn/smil:cnntv.smil/playlist.m3u8
 
 #EXTINF:-1 tvg-id="CNBCINDONESIA" tvg-name="CNBCINDONESIA" group-title="Lokal" tvg-logo="https://iptvsystem.my.id/img/cnbcindonesia.png",CNBCINDONESIA
@@ -30,7 +30,7 @@ https://live.cnbcindonesia.com/livecnbc/smil:cnbctv.smil/chunklist.m3u8
 #EXTINF:-1 tvg-id="CNN US" tvg-name="CNN US" group-title="Lokal" tvg-logo="https://cdn.streamo.cfd/live/images/cnn.png",CNNUSA
 https://cdn.streamo.cfd/live/channel/USA/CNN.m3u8
 
-#EXTINF:-1 tvg-id="NET TV" tvg-name="NET TV" group-title="Lokal" tvg-logo="https://github.com/muhrizki1996/Indonesian-Free-Live-Stream-TV-Channels-Playlists/raw/master/TV%20Logos/logo_net_big1.png",NET TV 
+#EXTINF:-1 tvg-id="NET TV" tvg-name="NET TV" group-title="Lokal" tvg-logo="https://iili.io/FLUaOa2.jpg",NET TV 
 http://boosstalive1-a.akamaihd.net/f894a6ebf56c4569bea516042afd1d55/ap-southeast-1/5664852414001/profile_0/chunklist.m3u8
 
 #EXTINF:-1 tvg-id="ALWAFA TARIM TV" tvg-name="ALWAFA TARIM TV" group-title="Lokal" tvg-logo="https://i.ibb.co/3yfMjmf/logo-3.png",ALWAFA TARIM TV
@@ -42,7 +42,7 @@ http://202.150.153.254:65500/bandungtvWEBSITE.m3u8
 #EXTINF:-1 tvg-id="BALIKAPANTV" tvg-name="BALIKAPANTV" group-title="Lokal" tvg-logo="https://i.imgur.com/P3whqna.png",BALIKAPAN TV
 https://5bf7b725107e5.streamlock.net/btv/btv/playlist.m3u8
 
-#EXTINF:-1 tvg-id="BANTENTV" tvg-name="BANTENTV" group-title="Lokal" tvg-logo="https://i.imgur.com/tbtF40p.png",BANTEN TV
+#EXTINF:-1 tvg-id="BANTENTV" tvg-name="BANTENTV" group-title="Lokal" tvg-logo="https://iili.io/FLU1nMg.jpg",BANTEN TV
 https://5bf7b725107e5.streamlock.net/bantentv/bantentv/playlist.m3u8
 
 #EXTINF:-1 tvg-id="TVRI 1" tvg-name="TVRI 1" tvg-logo="https://iili.io/FLSWub2.jpg",TVRI 1
