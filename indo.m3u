@@ -211,7 +211,6 @@ https://www.youtube.com/live/0RSpAQ7gAps?si=IakAVZJqCJvN-bWp
 #EXTINF:-1 tvg-id="liputan6" tvg-logo="https://iili.io/FZP1f99.png" group-title="Religious",liputan6 1
 https://www.youtube.com/live/OhTXCnOnvHM?si=l2KMmzLwbJWd31EY
 
-#EXTM3U
 #EXTINF:-1 tvg-id="BALI TV" tvg-name="BALI TV" tvg-logo="https://vignette4.wikia.nocookie.net/logopedia/images/8/88/Logo_Bali_TV.png/revision/latest?cb=20140204121448" group-title="Saluran Indonesia",BALI TV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=5eaddccd893a47ac8b65f9b31963a3ae:881afa67ea57b41c1822d745d67559e6
