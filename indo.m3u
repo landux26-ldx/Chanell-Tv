@@ -69,5 +69,57 @@ https://nusantaratv.siar.us/nusantaratv/live/playlist.m3u8
 #EXTINF:-1 tvg-id="BTV" tvg-name="BTV" group-title="Server Lokal" tvg-logo="https://iili.io/FLPYrNV.jpg",BTV
 https://btv.secureswiftcontent.com/han/btv/btv10005r/srtoutput/manifest.m3u8
 
-#EXTINF:-1 tvg-id="TRANS7" tvg-name="TRANS7" group-title="Server Lokal" tvg-logo="https://www.transtv.co.id/themes/v25.7/src/assets/logo/livetv/TRANS7.png",TRANS7
-https://video.detik.com/trans7/smil:trans7.smil/chunklist_w1803434821_b744100_sleng.m3u8
+#EXTINF:-1 tvg-id="RTV" tvg-name="RTV" group-title="Server Lokal" tvg-logo="https://iili.io/FZfB4ja.png",RTV Channel 1
+https://stream.rtv.co.id/hls/rtv.m3u8
+
+#EXTINF:-1 tvg-id="Beritasatu" tvg-name="Beritasatu" group-title="Server Lokal" tvg-logo="https://iili.io/FZfnwgV.png",Beritasatu Channel 1
+https://beritasatu.secureswiftcontent.com/han/beritasatu/bsatu10008r/srtoutput/hvideo-960x480.m3u8
+
+#EXTINF:-1 tvg-id="DTVI" tvg-name="DTVI" group-title="Server Lokal" tvg-logo="https://iili.io/FZJXSnV.png",DTVI Channel 1 
+https://e.siar.us/live/dtvi.m3u8
+
+#EXTINF:-1 tvg-id="RCTI" tvg-name="RCTI" group-title="Server Lokal" tvg-logo="https://iili.io/FZJ2eI9.png",RCTI Channel 1
+https://sindikasi.inews.id/embed/video/YWdlbnQ9ZGVza3RvcCZ1cmw9aHR0cHMlM0ElMkYlMkZlbWJlZC5yY3RpcGx1cy5jb20lMkZsaXZlJTJGcmN0aSUyRmluZXdzaWQmaGVpZ2h0PTEwMCUyNSZ3aWR0aD0xMDAlMjU=
+
+#EXTINF:-1 tvg-id="trans7C1" tvg-name="trans7C1" group-title="Server Lokal" tvg-logo="https://iili.io/FZHDYRs.png",Trans7 Channel 1
+https://20.detik.com/watch/livestreaming-trans7
+
+#EXTINF:-1 tvg-id="trans7C2" tvg-name="trans7C2" group-title="Server Lokal" tvg-logo="https://iili.io/FZHDYRs.png",Trans7 Channel 2
+https://video.detik.com/trans7/smil:trans7.smil/playlist.m3u8
+
+#EXTINF:-1 tvg-id="GTV" tvg-name="GTV" group-title="Server Lokal" tvg-logo="https://iili.io/FZJqKAl.jpg",GTV Channel 1
+https://sindikasi.inews.id/embed/video/YWdlbnQ9ZGVza3RvcCZ1cmw9aHR0cHMlM0ElMkYlMkZlbWJlZC5yY3RpcGx1cy5jb20lMkZsaXZlJTJGZ3R2JTJGaW5ld3NpZCZoZWlnaHQ9MTAwJTI1JndpZHRoPTEwMCUyNQ==
+
+#EXTINF:-1 tvg-id="Inews" tvg-name="Inews" group-title="Server Lokal" tvg-logo="https://iili.io/FZJoqdu.png",Inews Channel 1
+https://sindikasi.inews.id/embed/video/YWdlbnQ9ZGVza3RvcCZ1cmw9aHR0cHMlM0ElMkYlMkZlbWJlZC5yY3RpcGx1cy5jb20lMkZsaXZlJTJGaW5ld3MlMkZpbmV3c2lkJmhlaWdodD0xMDAlMjUmd2lkdGg9MTAwJTI1
+
+#EXTINF:-1 tvg-id="MNCTV" tvg-name="MNCTV" group-title="Server Lokal" tvg-logo="https://iili.io/FZJuRRe.png",MNCTV Channel 1
+https://sindikasi.inews.id/embed/video/YWdlbnQ9ZGVza3RvcCZ1cmw9aHR0cHMlM0ElMkYlMkZlbWJlZC5yY3RpcGx1cy5jb20lMkZsaXZlJTJGbW5jdHYlMkZpbmV3c2lkJmhlaWdodD0xMDAlMjUmd2lkdGg9MTAwJTI1
+
+#EXTINF:-1 tvg-id="IDX" tvg-name="IDX" group-title="Server Lokal" tvg-logo="https://iili.io/FZJ1YYv.png",IDX Channel 1
+https://sindikasi.inews.id/embed/video/YWdlbnQ9ZGVza3RvcCZ1cmw9aHR0cHMlM0ElMkYlMkZjZG4tbGl2ZXR2LXN0dWRpby5tZXR1YmUuaWQlMkZpZHhjaGFubmVsLm0zdTgmaGVpZ2h0PTEwMCUyNSZ3aWR0aD0xMDAlMjU=
+
+#EXTINF:-1 tvg-id="IDX2" tvg-name="IDX2" group-title="Server Lokal" tvg-logo="https://iili.io/FZJ1YYv.png",IDX Channel 2
+https://www.youtube.com/live/wuIo2gTqHnY?si=voccr1DGD4pHqwlm
+
+#EXTINF:-1 tvg-id="MNCNEWS" tvg-name="MNCNEWS" group-title="Server Lokal" tvg-logo="https://iili.io/FZJ1Dn1.png",MNCNEWS Channel 1
+https://sindikasi.inews.id/embed/video/YWdlbnQ9ZGVza3RvcCZ1cmw9aHR0cHMlM0ElMkYlMkZjZG4tbGl2ZXR2LXN0dWRpby5tZXR1YmUuaWQlMkZtbmNuZXdzLm0zdTgmaGVpZ2h0PTEwMCUyNSZ3aWR0aD0xMDAlMjU=
+
+#EXTINF:-1 tvg-id="TRANSTV" tvg-name="TRANSTV" group-title="Server Lokal" tvg-logo="https://iili.io/FL4D46l.jpg",TRANSTV Channel 1
+https://20.detik.com/watch/livestreaming-transtv
+
+#EXTINF:-1 tvg-id="METROTV" tvg-name="METROTV" group-title="Server Lokal" tvg-logo="https://iili.io/FZJGv1e.png",METROTV Channel 1
+https://www.dailymotion.com/embed/video/k236ofBIxajxDiti8CY?autoPlay=1&queue-enable=false
+
+#EXTINF:-1 tvg-id="METROTV2" tvg-name="METROTV2" group-title="Server Lokal" tvg-logo="https://iili.io/FZJGv1e.png",METROTV Channel 2
+https://www.youtube.com/live/-CwtcKDaaLA?si=rs8b1940fXZZbrya
+
+#EXTINF:-1 tvg-id="METROTV3" tvg-name="METROTV3" group-title="Server Lokal" tvg-logo="https://iili.io/FZJGv1e.png",METROTV Channel 3
+https://www.youtube.com/live/-CwtcKDaaLA?si=0fELEA-bTZmZb_0p
+
+
+
+
+
+
+
