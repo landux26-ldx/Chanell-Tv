@@ -1,0 +1,370 @@
+<!Membuat html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>TV Player 3×3 Landux</title>
+<style>
+  :root {
+    --bg-dark: #0b0f14;
+    --bg-card-dark: #141b23;
+    --text-light: #e0e6ed;
+    --bg-light: #f5f7fa;
+    --bg-card-light: #ffffff;
+    --text-dark: #1a1a1a;
+    --accent: #2196f3;
+    --radius: 14px;
+    --shadow: 0 4px 12px rgba(0,0,0,0.4);
+    --transition: 0.25s ease;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    background: var(--bg-dark);
+    color: var(--text-light);
+    transition: background var(--transition), color var(--transition);
+  }
+  body.light {
+    background: var(--bg-light);
+    color: var(--text-dark);
+  }
+
+  /* Player */
+  #video-container {
+    display: flex; flex-direction: column; align-items: center; padding: 10px;
+  }
+  #player-wrap {
+    position: relative; width: 100%; max-width: 800px; background: #000;
+    aspect-ratio: 16/9; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
+  }
+  video, iframe { width: 100%; height: 100%; border: 0; opacity: 0; animation: fadeIn 0.5s ease forwards; }
+  @keyframes fadeIn { to { opacity: 1; } }
+
+  #fullscreen-btn{
+    position:absolute; top:10px; right:10px; background:rgba(0,0,0,0.5);
+    border:none; color:var(--text-light); padding:6px 10px; cursor:pointer;
+    border-radius: var(--radius); font-size:18px; transition: background var(--transition);
+    z-index:999;
+  }
+  body.light #fullscreen-btn { color: var(--text-dark); background: rgba(255,255,255,0.6); }
+  #fullscreen-btn:hover { background: color-mix(in srgb, var(--accent) 70%, transparent); }
+
+  /* Channels slider */
+  #channels-wrapper {
+    overflow-x: auto; white-space: nowrap; scroll-snap-type: x mandatory; margin-top: 14px;
+  }
+  .channel-page {
+    display: grid; grid-template-columns: repeat(3,1fr); gap:10px; width:100vw; padding:10px;
+    display:inline-grid; vertical-align:top; scroll-snap-align:start;
+  }
+  .channel {
+    display:flex; flex-direction:column; align-items:center; background: var(--bg-card-dark);
+    border-radius: var(--radius); padding: 6px; cursor:pointer; box-shadow: var(--shadow);
+    transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border var(--transition);
+    border: 1px solid transparent;
+  }
+  body.light .channel { background: var(--bg-card-light); }
+  .channel:hover { transform: translateY(-4px); box-shadow: 0 6px 16px color-mix(in srgb, var(--accent) 45%, transparent); border-color: var(--accent); }
+  .channel img { width: 100%; border-radius: var(--radius); border: 2px solid transparent; transition: border var(--transition); }
+  .channel:hover img { border-color: var(--accent); }
+  .channel span { margin-top: 6px; font-size: 13px; text-align: center; }
+
+  /* Overlay Play */
+  #play-overlay {
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    background: rgba(0,0,0,0.5); z-index:998; display:none;
+  }
+  #play-overlay button {
+    background: var(--accent); color:#fff; padding:12px 22px; font-size:16px; border:none;
+    border-radius: var(--radius); cursor:pointer; font-weight:bold; box-shadow: var(--shadow);
+    transition: transform var(--transition), background var(--transition);
+  }
+  #play-overlay button:hover { transform: translateY(-2px); background: color-mix(in srgb, var(--accent) 85%, #000 15%); }
+
+  /* Floating gear */
+  #gear-btn{
+    position:fixed; bottom:16px; right:16px; width:56px; height:56px; border-radius:50%;
+    background: var(--accent); color:white; display:flex; align-items:center; justify-content:center;
+    font-size:28px; cursor:pointer; z-index:1000; box-shadow: var(--shadow);
+    transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+  }
+  #gear-btn:hover{ transform: rotate(90deg) scale(1.05); box-shadow: 0 6px 16px color-mix(in srgb, var(--accent) 50%, transparent); }
+
+  /* Bottom sheet (all-in settings) */
+  #settings-sheet{
+    position:fixed; left:0; right:0; bottom:-100%; background: var(--bg-card-dark);
+    padding:20px; box-shadow: 0 -4px 12px rgba(0,0,0,0.6); border-top-left-radius:20px; border-top-right-radius:20px;
+    transition: bottom 0.35s ease; z-index:1001;
+  }
+  body.light #settings-sheet{ background: var(--bg-card-light); }
+  #settings-sheet.show{ bottom:0; animation: slideUp 0.35s ease; }
+  @keyframes slideUp { from{ transform: translateY(100%);} to{ transform: translateY(0);} }
+  #settings-sheet h3{ margin:0 0 10px 0; }
+
+  .row{ display:flex; gap:8px; margin-bottom:10px; }
+  .row input[type="text"]{
+    flex:1; padding:10px; border-radius:12px; border:1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+    background:#1e2733; color:var(--text-light); outline:none; transition: border var(--transition), background var(--transition), color var(--transition);
+  }
+  body.light .row input[type="text"]{ background:#f0f0f0; color:var(--text-dark); }
+  .row button{
+    padding:10px 14px; border:none; border-radius:12px; background: var(--accent); color:white; font-weight:600; cursor:pointer;
+    transition: background var(--transition), transform var(--transition);
+  }
+  .row button:hover{ background: color-mix(in srgb, var(--accent) 85%, #000 15%); transform: translateY(-1px); }
+
+  /* Settings items */
+  .setting-item{ display:flex; align-items:center; justify-content:space-between; padding:10px 12px; border-radius:12px; background: rgba(255,255,255,0.03); margin-bottom:10px; }
+  body.light .setting-item{ background: rgba(0,0,0,0.04); }
+
+  /* Toggle switch */
+  .toggle { position: relative; width: 46px; height: 26px; background:#888; border-radius: 26px; cursor:pointer; transition: background var(--transition); }
+  .toggle::before{ content:""; position:absolute; top:3px; left:3px; width:20px; height:20px; border-radius:50%; background:#fff; transition: transform var(--transition); }
+  input#theme-toggle{ display:none; }
+  input#theme-toggle:checked + .toggle{ background: var(--accent); }
+  input#theme-toggle:checked + .toggle::before{ transform: translateX(20px); }
+
+  /* Color picker styling */
+  .color-input{ appearance: none; -webkit-appearance: none; border:none; padding:0; width:44px; height:26px; border-radius:8px; cursor:pointer; }
+  .color-input::-webkit-color-swatch-wrapper{ padding:0; }
+  .color-input::-webkit-color-swatch{ border:none; border-radius:8px; }
+  .hint{ font-size:12px; opacity:0.75; margin-top:-6px; margin-bottom:8px; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body>
+  <!-- Player -->
+  <div id="video-container">
+    <div id="player-wrap">
+      <div id="play-overlay"><button id="manualPlay">▶ Play</button></div>
+      <button id="fullscreen-btn">⛶</button>
+    </div>
+  </div>
+
+  <!-- Channels -->
+  <div id="channels-wrapper">
+    <div id="channels"></div>
+  </div>
+
+  <!-- Floating gear -->
+  <div id="gear-btn" title="Pengaturan">⚙</div>
+
+  <!-- Settings (semua pengaturan digabung di sini) -->
+  <div id="settings-sheet">
+    <button id="settings-sheet-close" title="Tutup" style="position:absolute;top:8px;right:12px;background:transparent;border:none;font-size:20px;cursor:pointer;color:inherit;">✕</button>
+    <h3>Pengaturan</h3>
+
+    <!-- URL Playlist -->
+    <div class="row">
+      <input type="text" id="m3u-url" placeholder="Masukkan URL .m3u...">
+      <button id="btn-load">Load</button>
+    </div>
+    <div class="hint">URL playlist terakhir disimpan otomatis.</div>
+
+    <!-- Test Stream -->
+    <div class="row">
+      <input type="text" id="test-url" placeholder="Masukkan URL m3u8 / YouTube / embed live...">
+      <button id="btn-test">Play</button>
+    </div>
+
+    <!-- Tema & Warna -->
+    <div class="setting-item">
+      <div>
+        <div style="font-weight:600;">Mode Gelap</div>
+        <div class="hint">Matikan untuk Mode Terang</div>
+      </div>
+      <label>
+        <input type="checkbox" id="theme-toggle" checked>
+        <span class="toggle"></span>
+      </label>
+    </div>
+
+    <div class="setting-item">
+      <div>
+        <div style="font-weight:600;">Warna Aksen</div>
+        <div class="hint">Mempengaruhi tombol, hover, dan highlight</div>
+      </div>
+      <input type="color" id="accent-color" class="color-input" value="#2196f3" aria-label="Pilih warna aksen">
+    </div>
+
+    <div class="row" style="margin-top:14px;">
+      <button id="btn-reset" style="width:100%;background:#e53935;">Reset Pengaturan</button>
+    </div>
+  </div>
+
+<script>
+let hls;
+const channelsDiv = document.getElementById('channels');
+const playerWrap = document.getElementById('player-wrap');
+const sheet = document.getElementById('settings-sheet');
+const gearBtn = document.getElementById('gear-btn');
+const closeBtn = document.getElementById('settings-sheet-close');
+const themeToggle = document.getElementById('theme-toggle');
+const accentPicker = document.getElementById('accent-color');
+const m3uInput = document.getElementById('m3u-url');
+const testInput = document.getElementById('test-url');
+const btnLoad = document.getElementById('btn-load');
+const btnTest = document.getElementById('btn-test');
+const btnReset = document.getElementById('btn-reset');
+
+/* ---------- Settings: load & apply ---------- */
+function applyTheme(theme){
+  document.body.classList.toggle('light', theme === 'light');
+  themeToggle.checked = theme !== 'light'; // checked = dark mode
+}
+function applyAccent(color){
+  document.documentElement.style.setProperty('--accent', color);
+  accentPicker.value = color;
+}
+function loadSettings(){
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  const savedAccent = localStorage.getItem('accentColor') || '#2196f3';
+  const savedM3u = localStorage.getItem('m3uUrl') || 'https://raw.githubusercontent.com/landux26-ldx/Chanell-Tv/refs/heads/main/indo.m3u';
+  applyTheme(savedTheme);
+  applyAccent(savedAccent);
+  m3uInput.value = savedM3u;
+}
+function resetSettings(){
+  localStorage.removeItem('theme');
+  localStorage.removeItem('accentColor');
+  localStorage.removeItem('m3uUrl');
+  applyTheme('dark');
+  applyAccent('#2196f3');
+  m3uInput.value = 'https://raw.githubusercontent.com/landux26-ldx/Chanell-Tv/refs/heads/main/indo.m3u';
+}
+
+/* ---------- Playlist loader ---------- */
+function loadPlaylist() {
+  const m3uUrl = m3uInput.value.trim();
+  if (!m3uUrl) return alert("Masukkan URL M3U!");
+  localStorage.setItem('m3uUrl', m3uUrl);
+
+  channelsDiv.innerHTML = "Memuat playlist...";
+  fetch(m3uUrl)
+    .then(res => res.text())
+    .then(txt => {
+      const lines = txt.split(/\r?\n/);
+      const channels = [];
+      let currentInfo = null;
+      lines.forEach(line => {
+        if (line.startsWith('#EXTINF')) {
+          const logoMatch = line.match(/tvg-logo="([^"]+)"/);
+          const nameMatch = line.split(',').pop().trim();
+          currentInfo = { name: nameMatch || "Unknown", logo: logoMatch ? logoMatch[1] : '', url: '' };
+        } else if (line && !line.startsWith('#')) {
+          if (currentInfo) {
+            currentInfo.url = line.trim();
+            channels.push(currentInfo);
+            currentInfo = null;
+          }
+        }
+      });
+
+      // Render 3x3 pages
+      channelsDiv.innerHTML = "";
+      let page;
+      channels.forEach((ch, i) => {
+        if (i % 9 === 0) {
+          page = document.createElement('div');
+          page.className = 'channel-page';
+          channelsDiv.appendChild(page);
+        }
+        const el = document.createElement('div');
+        el.className = 'channel';
+        el.innerHTML = `<img src="${ch.logo}" alt="${ch.name}"><span>${ch.name}</span>`;
+        el.onclick = () => playStream(ch.url);
+        page.appendChild(el);
+      });
+
+      if (channels.length) playStream(channels[0].url);
+    })
+    .catch(err => { channelsDiv.innerHTML = "Gagal memuat playlist."; console.error(err); });
+}
+
+/* ---------- Player ---------- */
+function playStream(url) {
+  if (hls) { hls.destroy(); }
+  playerWrap.innerHTML = '<div id="play-overlay"><button id="manualPlay">▶ Play</button></div><button id="fullscreen-btn">⛶</button>';
+  const overlayEl = document.getElementById('play-overlay');
+  const manualPlay = document.getElementById('manualPlay');
+
+  if (url.includes('youtube.com') || url.includes('youtu.be') || url.includes('inews.id/embed')) {
+    const iframe = document.createElement('iframe');
+    iframe.src = url.includes('inews.id/embed') ? url : `https://www.youtube.com/embed/${extractYouTubeID(url)}?autoplay=1&mute=1&playsinline=1`;
+    iframe.allow = "autoplay; encrypted-media";
+    iframe.allowFullscreen = true;
+    playerWrap.appendChild(iframe);
+    overlayEl.style.display = 'none';
+  } else {
+    const video = document.createElement('video');
+    video.controls = true;
+    video.autoplay = true;
+    video.muted = true;
+    video.playsInline = true;
+    playerWrap.appendChild(video);
+    if (Hls.isSupported()) {
+      hls = new Hls({capLevelToPlayerSize:true});
+      hls.loadSource(url);
+      hls.attachMedia(video);
+      video.play().catch(()=>{ overlayEl.style.display = 'flex'; });
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = url;
+      video.play().catch(()=>{ overlayEl.style.display = 'flex'; });
+    } else {
+      alert("Browser tidak mendukung HLS");
+    }
+    manualPlay.addEventListener('click', ()=>{
+      video.play().then(()=>{ overlayEl.style.display = 'none'; });
+    });
+  }
+  attachFullscreenHandler();
+}
+function extractYouTubeID(url) {
+  const match = url.match(/(?:v=|\/live\/|youtu\.be\/)([A-Za-z0-9_-]{11})/);
+  return match ? match[1] : null;
+}
+function attachFullscreenHandler() {
+  const btn = document.getElementById('fullscreen-btn');
+  btn.addEventListener('click', () => {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else if (playerWrap.requestFullscreen) {
+      playerWrap.requestFullscreen();
+    }
+  });
+}
+
+/* ---------- Events UI ---------- */
+gearBtn.addEventListener('click', () => sheet.classList.add('show'));
+closeBtn.addEventListener('click', () => sheet.classList.remove('show'));
+
+themeToggle.addEventListener('change', function(){
+  const theme = this.checked ? 'dark' : 'light';
+  applyTheme(theme);
+  localStorage.setItem('theme', theme);
+});
+accentPicker.addEventListener('input', function(){
+  applyAccent(this.value);
+  localStorage.setItem('accentColor', this.value);
+});
+btnLoad.addEventListener('click', loadPlaylist);
+btnTest.addEventListener('click', () => {
+  const url = testInput.value.trim();
+  if (url) playStream(url);
+});
+btnReset.addEventListener('click', () => {
+  resetSettings();
+  // Terapkan ulang UI
+  loadPlaylist();
+});
+
+/* ---------- Init ---------- */
+document.addEventListener('DOMContentLoaded', () => {
+  loadSettings();
+  loadPlaylist();
+});
+</script>
+</body>
+</html>
